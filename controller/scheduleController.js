@@ -13,9 +13,9 @@ const {
   MONGODB_PASSWORD,
   ENV,
 } = process.env;
-let urlMongoose = `${MONGODB_PROTOCOL}://${MONGODB_HOST}:${MONGODB_PORT}/${MONGODB_DBNAME}`;
-if (ENV === 'production') {
-  urlMongoose = `${MONGODB_PROTOCOL}://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}/${MONGODB_DBNAME}`;
+let urlMongoose = `${MONGODB_PROTOCOL}://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}/${MONGODB_DBNAME}`;
+if (ENV === 'development') {
+  urlMongoose = `${MONGODB_PROTOCOL}://${MONGODB_HOST}:${MONGODB_PORT}/${MONGODB_DBNAME}`;
 }
 mongoose.connect(urlMongoose);
 
